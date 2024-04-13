@@ -8,8 +8,6 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './editar-pensamento.component.html',
   styleUrl: './editar-pensamento.component.css',
 })
-
-// TODO: Usar Modal do MATERIAL ao invés de abrir outra tela
 export class EditarPensamentoComponent {
   pensamento: Pensamento = {
     id: 0,

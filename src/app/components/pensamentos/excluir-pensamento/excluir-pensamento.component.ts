@@ -1,3 +1,6 @@
+/*
+ESSA CLASSE NÃO SERÁ MAIS UTILIZADA!!! VAMOS USAR MODAL
+*/
 import { Component } from '@angular/core';
 import { Pensamento } from '../../../interfaces/pensamento.interface';
 import { PensamentoService } from '../../../services/pensamentos/pensamento/pensamento.service';
@@ -9,8 +12,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './excluir-pensamento.component.html',
   styleUrl: './excluir-pensamento.component.css',
 })
-
-// TODO: Usar Modal do MATERIAL ao invés de abrir outra página
 export class ExcluirPensamentoComponent {
   pensamento: Pensamento = {
     id: 0,
