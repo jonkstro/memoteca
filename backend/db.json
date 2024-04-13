@@ -1,0 +1,28 @@
+{
+  "pensamentos": [
+    {
+      "id": "6",
+      "conteudo": "A coragem não reside na ausência do medo, mas sim na decisão de avançar apesar dele. Enfrentar nossos temores mais profundos exige uma dose extra de determinação e fé no próprio potencial. Cada passo dado na direção do desconhecido é uma afirmação de nossa força interior, uma declaração de que estamos dispostos a transcender nossos limites e alcançar novos horizontes.",
+      "autoria": "Gabriel",
+      "modelo": "modelo2"
+    },
+    {
+      "id": "8",
+      "conteudo": "A simplicidade é a chave para uma vida plena. Quando despojamos nossas vidas do excesso, descobrimos a verdadeira essência da felicidade.",
+      "autoria": "Carlos",
+      "modelo": "modelo3"
+    },
+    {
+      "id": "9",
+      "conteudo": "O amor é um fogo que arde sem ser visto, é ferida que dói e não se sente; é um contentamento descontente, é dor que desatina sem doer.",
+      "autoria": "Luís de Camões",
+      "modelo": "modelo1"
+    },
+    {
+      "id": "ab7a",
+      "conteudo": "testes alert",
+      "autoria": "alert",
+      "modelo": "modelo1"
+    }
+  ]
+}

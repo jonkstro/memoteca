@@ -1,0 +1,35 @@
+<!-- adicioinar a classe conforme o objeto pensamento através de interpolação, para mudar as cores conforme o tipo do modelo (modelo1, 2 ou 3) -->
+<!-- o ngClass irá adicionar a classe que retornar do método larguraPensamento -->
+<div
+  class="pensamento {{ pensamento.modelo }} ff-roboto-mono"
+  [ngClass]="larguraPensamento()"
+>
+  <img
+    src="../../../../assets/img/{{ pensamento.modelo }}.png"
+    alt="Aspas coloridas"
+  />
+  <p class="conteudo">{{ pensamento.conteudo }}</p>
+  <p class="autoria">{{ pensamento.autoria }}</p>
+  <div class="acoes">
+    <button
+      class="botao-editar"
+      routerLink="/pensamentos/editar-pensamento/{{ pensamento.id }}"
+    >
+      <img
+        src="../../../../assets/img/icone-editar.png"
+        alt="Icone de editar"
+      />
+    </button>
+    <!-- navegar para a página de exclusão pelo id do card -->
+    <button class="botao-excluir" (click)="abrirModal()">
+      <!-- <button
+      class="botao-excluir"
+      routerLink="/pensamentos/excluir-pensamento/{{ pensamento.id }}"
+    > -->
+      <img
+        src="../../../../assets/img/icone-excluir.png"
+        alt="Icone de excluir"
+      />
+    </button>
+  </div>
+</div>
