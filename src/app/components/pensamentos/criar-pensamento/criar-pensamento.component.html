@@ -5,40 +5,35 @@
       pensamento novo:
     </h2>
   </header>
-  <form action="">
+  <!-- vincular o formulario do componente typescript com o form do html -->
+  <form [formGroup]="formulario">
     <label for="pensamento">Pensamento</label>
-    <!-- Podemos fazer o Binding assim: -->
-    <!-- ngModel quer dizer que vai ser atualizado o objeto no typescript quando no html o input for alterado -->
     <input
       type="textarea"
       class="input"
-      name="pensamento"
+      formControlName="conteudo"
       id="pensamento"
       placeholder="Digite um pensamento"
-      [(ngModel)]="pensamento.conteudo"
     />
 
     <label for="autoria">Autoria ou fonte</label>
     <input
       type="textarea"
       class="input"
-      name="autoria"
+      formControlName="autoria"
       id="autoria"
       placeholder="Digite um autoria"
-      [(ngModel)]="pensamento.autoria"
     />
 
     <label for="modelo">Selecione o modelo do card:</label>
     <div class="container-radio">
       <div class="radio-modelo">
         <label for="modelo1">
-          <!-- ao invés de value, vamos usar o ngModel para pegar o modelo que tiver no typescript, podendo ser alterado através do html -->
           <input
             type="radio"
             id="modelo1"
             value="modelo1"
-            [(ngModel)]="pensamento.modelo"
-            name="modelo-card"
+            formControlName="modelo"
           />
           <div class="custom-radio">
             <span></span>
@@ -49,20 +44,21 @@
         <div class="modelo modelo1 ff-roboto-mono">
           <img src="../../../../assets/img/modelo1.png" alt="Aspas azuis" />
           <!-- pegando os dados direto do component.ts -->
-          <p class="conteudo">{{ pensamento.conteudo }}</p>
-          <p class="autoria">{{ pensamento.autoria }}</p>
+          <p class="conteudo">{{ formulario.get("conteudo")?.value }}</p>
+          <p class="autoria">{{ formulario.get("autoria")?.value }}</p>
+
+          <!-- <p class="conteudo">{{ pensamento.conteudo }}</p>
+          <p class="autoria">{{ pensamento.autoria }}</p> -->
         </div>
       </div>
 
       <div class="radio-modelo">
         <label for="modelo2">
-          <!-- ao invés de value, vamos usar o ngModel para pegar o modelo que tiver no typescript, podendo ser alterado através do html -->
           <input
             type="radio"
             id="modelo2"
             value="modelo2"
-            [(ngModel)]="pensamento.modelo"
-            name="modelo-card"
+            formControlName="modelo"
           />
           <div class="custom-radio">
             <span></span>
@@ -76,20 +72,21 @@
             alt="Aspas azuis claro"
           />
           <!-- pegando os dados direto do component.ts -->
-          <p class="conteudo">{{ pensamento.conteudo }}</p>
-          <p class="autoria">{{ pensamento.autoria }}</p>
+          <p class="conteudo">{{ formulario.get("conteudo")?.value }}</p>
+          <p class="autoria">{{ formulario.get("autoria")?.value }}</p>
+
+          <!-- <p class="conteudo">{{ pensamento.conteudo }}</p>
+          <p class="autoria">{{ pensamento.autoria }}</p> -->
         </div>
       </div>
 
       <div class="radio-modelo">
         <label for="modelo3">
-          <!-- ao invés de value, vamos usar o ngModel para pegar o modelo que tiver no typescript, podendo ser alterado através do html -->
           <input
             type="radio"
             id="modelo3"
             value="modelo3"
-            [(ngModel)]="pensamento.modelo"
-            name="modelo-card"
+            formControlName="modelo"
           />
           <div class="custom-radio">
             <span></span>
@@ -100,8 +97,11 @@
         <div class="modelo modelo3 ff-roboto-mono">
           <img src="../../../../assets/img/modelo3.png" alt="Aspas verde" />
           <!-- pegando os dados direto do component.ts -->
-          <p class="conteudo">{{ pensamento.conteudo }}</p>
-          <p class="autoria">{{ pensamento.autoria }}</p>
+          <p class="conteudo">{{ formulario.get("conteudo")?.value }}</p>
+          <p class="autoria">{{ formulario.get("autoria")?.value }}</p>
+
+          <!-- <p class="conteudo">{{ pensamento.conteudo }}</p>
+          <p class="autoria">{{ pensamento.autoria }}</p> -->
         </div>
       </div>
     </div>
