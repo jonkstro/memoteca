@@ -14,6 +14,11 @@
     </div>
   </div>
 </section>
+<!-- carregar mais pensamentos quando clicar (mudar o _page) -->
+<app-botao-carregar-mais
+  [haMaisPensamentos]="haMaisPensamentos"
+  (click)="carregarMaisPensamentos()"
+></app-botao-carregar-mais>
 <!-- Esse template vai ser usado no else do ngIf -->
 <ng-template #semPensamentos>
   <div class="ff-inter sem-pensamentos">

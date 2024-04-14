@@ -14,6 +14,7 @@ import { ExcluirPensamentoComponent } from './components/pensamentos/excluir-pen
 import { EditarPensamentoComponent } from './components/pensamentos/editar-pensamento/editar-pensamento.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { ExcluirPensamentoModalComponent } from './components/pensamentos/excluir-pensamento-modal/excluir-pensamento-modal.component';
+import { BotaoCarregarMaisComponent } from './components/pensamentos/listar-pensamentos/botao-carregar-mais/botao-carregar-mais.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ExcluirPensamentoModalComponent } from './components/pensamentos/exclui
     ExcluirPensamentoComponent,
     EditarPensamentoComponent,
     ExcluirPensamentoModalComponent,
+    BotaoCarregarMaisComponent,
   ],
   imports: [
     BrowserModule,

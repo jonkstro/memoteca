@@ -11,6 +11,9 @@ export class ListarPensamentosComponent {
   listaPensamentos: Pensamento[] = [
     // A lista dos pensamentos virão do backend
   ];
+  paginaAtual = 3;
+
+  haMaisPensamentos: boolean = true;
 
   // Injetar as dependencias do serviço na classe ListarPensamentos
   constructor(private service: PensamentoService) {}
@@ -19,8 +22,17 @@ export class ListarPensamentosComponent {
     // vamos dar subscribe no Observable que está retornando do service.
     // após isso, vamos atribuir para a listaPensamento os objetos que estão sendo retornados pela requisição http (pegando do backend os objetos)
     // a arrow function é como se fosse o '.then()'
-    this.service.listar().subscribe((listaObjetos) => {
+    this.service.listar(this.paginaAtual).subscribe((listaObjetos) => {
       this.listaPensamentos = listaObjetos;
+    });
+  }
+
+  carregarMaisPensamentos() {
+    this.service.listar(++this.paginaAtual).subscribe((lista) => {
+      this.listaPensamentos.push(...lista);
+      if (!lista.length) {
+        this.haMaisPensamentos = false;
+      }
     });
   }
 }
