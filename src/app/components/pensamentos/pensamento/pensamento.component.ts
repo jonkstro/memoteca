@@ -9,7 +9,7 @@ import { ExcluirPensamentoModalComponent } from '../excluir-pensamento-modal/exc
   styleUrl: './pensamento.component.css',
 })
 export class PensamentoComponent {
-  // essa anotação quer dizer que o objeto vai receber informações do componente pai
+  // essa anotação quer dizer que o objeto vai receber informações do componente pai, no caso, listaPensamento.ts
   @Input() pensamento: Pensamento = {
     // id: 1,
     conteudo: '',

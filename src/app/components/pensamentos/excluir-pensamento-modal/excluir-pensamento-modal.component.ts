@@ -26,7 +26,7 @@ export class ExcluirPensamentoModalComponent {
     public dialogRef: MatDialogRef<ExcluirPensamentoModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    this.pensamento = data.pensamento; // Recebendo o objeto pensamento do componente
+    this.pensamento = data.pensamento; // Recebendo o objeto pensamento do componente pensamento.ts através do método abrirModal()
   }
 
   ngOnInit() {

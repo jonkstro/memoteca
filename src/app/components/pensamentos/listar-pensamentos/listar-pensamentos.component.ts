@@ -17,7 +17,7 @@ export class ListarPensamentosComponent {
   // esse método vai ser executado sempre que iniciar o componente
   ngOnInit() {
     // vamos dar subscribe no Observable que está retornando do service.
-    // após isso, vamos atribuir para a listaPensamento os objetos que estão sendo retornados
+    // após isso, vamos atribuir para a listaPensamento os objetos que estão sendo retornados pela requisição http (pegando do backend os objetos)
     // a arrow function é como se fosse o '.then()'
     this.service.listar().subscribe((listaObjetos) => {
       this.listaPensamentos = listaObjetos;

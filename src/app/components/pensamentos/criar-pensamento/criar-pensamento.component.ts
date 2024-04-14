@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { PensamentoService } from '../../../services/pensamentos/pensamento/pensamento.service';
 import { Pensamento } from '../../../interfaces/pensamento.interface';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-criar-pensamento',
@@ -30,14 +30,32 @@ export class CriarPensamentoComponent {
   ngOnInit() {
     // Formulário reativo do Angular
     this.formulario = this.formBuilder.group({
-      conteudo: [''],
-      autoria: [''],
-      modelo: ['modelo1'],
+      conteudo: [
+        '',
+        Validators.compose([
+          Validators.required,
+          // regex pra não deixar espaço vazio
+          Validators.pattern(/(.|\s)*\S(.|\s)*/),
+          Validators.minLength(10),
+        ]),
+      ],
+      autoria: [
+        '',
+        Validators.compose([
+          Validators.required,
+          // regex pra não deixar espaço vazio
+          Validators.pattern(/(.|\s)*\S(.|\s)*/),
+          Validators.minLength(3),
+        ]),
+      ],
+      modelo: ['modelo1', [Validators.required]],
     });
   }
 
   // bota se quiser o tipo do retorno
   criarPensamento() {
+    // se o formulário não for válido, vai fazer nada
+    if (!this.formulario.valid) return;
     // a arrow function é como se fosse o '.then()'
     this.service.criar(this.formulario.value).subscribe(() => {
       alert(
@@ -51,5 +69,12 @@ export class CriarPensamentoComponent {
 
   cancelar(): void {
     this.router.navigate(['/listar-pensamento']);
+  }
+
+  habilitarBotao(): string {
+    if (!this.formulario.valid) {
+      return 'botao__desabilitado';
+    }
+    return 'botao';
   }
 }

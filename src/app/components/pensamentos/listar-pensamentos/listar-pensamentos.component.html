@@ -9,7 +9,7 @@
   <div class="mural" *ngIf="listaPensamentos.length > 0; else semPensamentos">
     <!-- Vamos usar *ngFor para poder iterar sobre a lista de objetos pensamento -->
     <div *ngFor="let pensamento of listaPensamentos">
-      <!-- aqui estamos dizendo que o componente filho (marcado com @input) vai receber o elemento do for -->
+      <!-- aqui estamos dizendo que o componente filho (marcado com @input) vai receber o elemento do for (pensamento) -->
       <app-pensamento [pensamento]="pensamento" />
     </div>
   </div>
