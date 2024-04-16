@@ -16,12 +16,16 @@ export class PensamentoService {
   // Injeção de dependencias do http client
   constructor(private http: HttpClient) {}
 
-  listar(pagina: number): Observable<Pensamento[]> {
+  listar(pagina: number, filtro: string): Observable<Pensamento[]> {
     // TODO: Pegar a API de alguma constante
     const itensPorPagina = 6;
     let params = new HttpParams()
       .set('_page', pagina)
       .set('_limit', itensPorPagina);
+
+    if (filtro.trim().length > 2) {
+      params = params.set('q', filtro);
+    }
 
     // const url = `${this.API}?_page=${pagina}&_limit=${itensPorPagina}`;
     // return this.http.get<Pensamento[]>(url);
