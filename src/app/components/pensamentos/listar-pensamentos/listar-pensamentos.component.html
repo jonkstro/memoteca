@@ -12,17 +12,24 @@
       />
       <img src="../../../../assets/img/lupa.png" alt="Lupa azul" />
     </div>
-    <h2 class="ff-inter">Meu Mural</h2>
-    <button class="botao" routerLink="/criar-pensamento">
-      Adicionar pensamento
-    </button>
+    <h2 class="ff-inter">{{ titulo }}</h2>
+    <div class="botoes">
+      <button class="botao" (click)="recarregarComponente()">Meu Mural</button>
+      <button class="botao" (click)="listarFavoritos()">Meus Favoritos</button>
+      <button class="botao" routerLink="/criar-pensamento">
+        Novo pensamento
+      </button>
+    </div>
   </header>
   <!-- a div só vai aparecer se tiver itens na lista -->
   <div class="mural" *ngIf="listaPensamentos.length > 0; else semPensamentos">
     <!-- Vamos usar *ngFor para poder iterar sobre a lista de objetos pensamento -->
     <div *ngFor="let pensamento of listaPensamentos">
       <!-- aqui estamos dizendo que o componente filho (marcado com @input) vai receber o elemento do for (pensamento) -->
-      <app-pensamento [pensamento]="pensamento" />
+      <app-pensamento
+        [pensamento]="pensamento"
+        [listaFavoritos]="listaFavoritos"
+      />
     </div>
   </div>
 </section>
