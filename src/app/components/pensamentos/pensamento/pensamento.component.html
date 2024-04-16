@@ -11,6 +11,27 @@
   <p class="conteudo">{{ pensamento.conteudo }}</p>
   <p class="autoria">{{ pensamento.autoria }}</p>
   <div class="acoes">
+    <button class="botao-favorito" (click)="atualizarFavoritos()">
+      <img
+        src="../../../../assets/img/icone-favorito-{{
+          mudarIconeFavorito()
+        }}.png"
+        alt="Ícone de favorito {{ mudarIconeFavorito() }}"
+      />
+    </button>
+    <!-- outra forma de fazer o botão de favoritos: -->
+    <!-- <button class="botao-favorito">
+      <img
+        *ngIf="!pensamento.favorito"
+        src="/assets/imagens/icone-favorito-inativo.png"
+        alt="Ícone de favorito inativo"
+      />
+      <img
+        *ngIf="pensamento.favorito"
+        src="/assets/imagens/icone-favorito-ativo.png"
+        alt="Ícone de favorito ativo"
+      />
+    </button> -->
     <button
       class="botao-editar"
       routerLink="/pensamentos/editar-pensamento/{{ pensamento.id }}"

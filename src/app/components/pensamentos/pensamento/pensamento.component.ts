@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Pensamento } from '../../../interfaces/pensamento.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { ExcluirPensamentoModalComponent } from '../excluir-pensamento-modal/excluir-pensamento-modal.component';
+import { PensamentoService } from '../../../services/pensamentos/pensamento/pensamento.service';
 
 @Component({
   selector: 'app-pensamento',
@@ -15,9 +16,10 @@ export class PensamentoComponent {
     conteudo: '',
     autoria: '',
     modelo: '',
+    favorito: false,
   };
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private service: PensamentoService) {}
 
   larguraPensamento(): string {
     if (this.pensamento.conteudo.length >= 256) {
@@ -34,5 +36,14 @@ export class PensamentoComponent {
     dialogRef.afterClosed().subscribe((result) => {
       console.log('O modal foi fechado');
     });
+  }
+
+  mudarIconeFavorito(): string {
+    if (!this.pensamento.favorito) return 'inativo';
+    return 'ativo';
+  }
+
+  atualizarFavoritos() {
+    this.service.mudarFavorito(this.pensamento).subscribe();
   }
 }

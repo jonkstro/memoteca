@@ -15,6 +15,7 @@ export class EditarPensamentoComponent {
     conteudo: '',
     autoria: '',
     modelo: '',
+    favorito: false,
   };
   // Formulário reativo do Angular
   formulario!: FormGroup;
@@ -53,6 +54,7 @@ export class EditarPensamentoComponent {
         ]),
       ],
       modelo: [this.pensamento.modelo, [Validators.required]],
+      favorito: [this.pensamento.favorito],
     });
   }
 

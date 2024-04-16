@@ -49,6 +49,7 @@ export class CriarPensamentoComponent {
         ]),
       ],
       modelo: ['modelo1', [Validators.required]],
+      favorito: [false],
     });
   }
 

@@ -16,6 +16,7 @@ export class ExcluirPensamentoModalComponent {
     conteudo: '',
     autoria: '',
     modelo: '',
+    favorito: false,
   };
   constructor(
     private service: PensamentoService,
